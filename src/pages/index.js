@@ -1,13 +1,9 @@
 import React, {Component} from "react"
-
-function Welcome(props) {
-    return <h1>Hello, {props.name}</h1>
-
-}
+import Welcome from "../components/WelcomeMessage";
 
 class App  extends Component{
     render() {
-        return <Welcome name={"CryptoDash"}/>
+        return <Welcome name="CryptoDash"/>
     }
 }
 
