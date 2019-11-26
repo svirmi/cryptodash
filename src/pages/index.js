@@ -1,19 +1,14 @@
 import React, {Component} from "react";
 import "../styles/App.css";
 import Welcome from "../components/WelcomeMessage";
-import styled from "styled-components";
-
-const MyDiv = styled.div`
-    color: green;
-`;
+import Layout from "../layout/Layout";
 
 class App  extends Component{
     render() {
         return (
-            <div>
+            <Layout>
                 <Welcome name="CryptoDash"/>
-                <MyDiv>OMG, it's styled component!</MyDiv>
-            </div>
+            </Layout>
             )
     }
 }
