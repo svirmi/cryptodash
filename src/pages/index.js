@@ -1,19 +1,16 @@
 import React, {Component} from "react";
 import "../styles/App.css";
 import Welcome from "../components/WelcomeMessage";
-import styled from "styled-components";
-
-const MyDiv = styled.div`
-    color: green;
-`;
+import AppLayout from "../layout/AppLayout";
+import AppBar from "../components/AppBar";
 
 class App  extends Component{
     render() {
         return (
-            <div>
+            <AppLayout>
+                <AppBar/>
                 <Welcome name="CryptoDash"/>
-                <MyDiv>OMG, it's styled component!</MyDiv>
-            </div>
+            </AppLayout>
             )
     }
 }
