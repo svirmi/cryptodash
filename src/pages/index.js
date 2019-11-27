@@ -1,14 +1,16 @@
 import React, {Component} from "react";
 import "../styles/App.css";
 import Welcome from "../components/WelcomeMessage";
-import Layout from "../layout/Layout";
+import AppLayout from "../layout/AppLayout";
+import AppBar from "../components/AppBar";
 
 class App  extends Component{
     render() {
         return (
-            <Layout>
+            <AppLayout>
+                <AppBar/>
                 <Welcome name="CryptoDash"/>
-            </Layout>
+            </AppLayout>
             )
     }
 }
