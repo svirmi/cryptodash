@@ -13,16 +13,20 @@ const Bar = styled.div`
 const ControlButtonElem = styled.div`
     cursor: pointer;
     ${props => props.active && css`
-        color: yellow;
+        text-shadow: 0px 0px 15px #03ff03;
     `}
 `;
 
 function ControlButton({name, active}) {
     return (
         <ControlButtonElem active={active}>
-            {name}
+            {toProperCase(name)}
         </ControlButtonElem>
     );
+}
+
+function toProperCase(el) {
+    return el.charAt(0).toUpperCase() + el.substr(1);
 }
 
 export default function () {
@@ -30,8 +34,8 @@ export default function () {
         <Bar>
             <Logo>CryptoDash</Logo>
             <div></div>
-            <ControlButton active name="DashBoard"/>
-            <ControlButton name="Settings"/>
+            <ControlButton active name="dashboard"/>
+            <ControlButton name="settings"/>
         </Bar>
     );
 }
