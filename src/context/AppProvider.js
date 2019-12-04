@@ -8,12 +8,24 @@ export class AppProvider extends React.Component{
         this.state = {
             page: 'dashboard',
             ...this.savedSettings(),
-            setPage: this.setPage
+            setPage: this.setPage,
+            confirmFavorites: this.confirmFavorites
         }
     }
 
+    confirmFavorites(){
+        console.log(1234);
+    }
+
     savedSettings(){
-        return {page: "settings"}
+        let cryptoDashData = JSON.parse(localStorage.getItem("cryptodash"));
+        if(!cryptoDashData){
+            return {
+                page: "settings",
+                firstVisit: true
+            }
+        }
+        return {};
     }
 
     setPage = page => this.setState({page});
