@@ -13,8 +13,15 @@ export class AppProvider extends React.Component{
         }
     }
 
-    confirmFavorites(){
-        console.log(1234);
+    confirmFavorites = () => {
+        this.setState({
+            firstVisit: false,
+            page: 'dashboard'
+        });
+
+        localStorage.setItem("cryptodash", JSON.stringify({
+            test: "dasboard-test"
+        }));
     }
 
     savedSettings(){
