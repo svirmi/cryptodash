@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import "../styles/App.css";
-import {AppProvider} from '../context/AppProvider';
-import Welcome from "../components/WelcomeMessage";
+import {AppProvider} from "../context/AppProvider";
 import AppLayout from "../layout/AppLayout";
+import Settings from "../settings";
 import AppBar from "../components/AppBar";
 
 class App  extends Component{
@@ -11,7 +11,7 @@ class App  extends Component{
             <AppLayout>
                 <AppProvider>
                     <AppBar/>
-                    <Welcome name="CryptoDash"/>
+                    <Settings/>
                 </AppProvider>
             </AppLayout>
             );
