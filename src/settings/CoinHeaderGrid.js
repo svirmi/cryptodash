@@ -7,7 +7,7 @@ const DeleteIcon = styled.div`
     display: none;
     ${DeletableTile}:hover & {
         display: block;
-        color: red;
+        color: red;        
     }
 `;
 
@@ -25,8 +25,8 @@ export default function ({name, symbol, topSection}) {
         <div>{name}</div>
         {
             topSection ?
-            (<DeleteIcon>X</DeleteIcon>) :
-            (<CoinSymbol>{symbol}</CoinSymbol>)
+                (<DeleteIcon>&#10006;</DeleteIcon>) :
+                (<CoinSymbol>{symbol}</CoinSymbol>)
         }
     </CoinHeaderGridStyled>
 }
