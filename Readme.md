@@ -1,4 +1,4 @@
-#### Gatsby, CSS grid, React Context
+#### Gatsby, CSS grid, React Context, styled components, third-party API
 
 Run command to start a project
 ```bash
@@ -6,5 +6,7 @@ docker run -it --rm -p 8000:8000 -u $(id -u ${USER}):$(id -g ${USER}) -v ${PWD}:
 cd app
 yarn gatsby develop -H 0.0.0.0
 ```
+
+http://localhost:8000/
 
 ![cryptodash screenshot](screenshot.png?raw=true "cryptodash screenshot")
