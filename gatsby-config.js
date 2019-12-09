@@ -7,6 +7,7 @@
 module.exports = {
     plugins: [
         `gatsby-plugin-styled-components`,
+        `gatsby-plugin-lodash`,
         {
             resolve: `gatsby-plugin-prefetch-google-fonts`,
             options: {
