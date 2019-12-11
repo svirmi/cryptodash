@@ -1,11 +1,11 @@
 import React from "react";
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import {AppContext} from "../context/AppProvider";
 import CoinTile from "./CoinTile";
 
 export const CoinGridStyled = styled.div`
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     grid-gap: 15px;
     margin: 30px auto;
 `;
