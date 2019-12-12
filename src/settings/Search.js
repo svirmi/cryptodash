@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {backgroundColor2, fontSize2} from "../shared/Styles";
+import {AppContext} from "../context/AppProvider";
 
 const SearchGrid = styled.div`
     display: grid;
@@ -16,11 +17,20 @@ const SearchInput = styled.input`
     place-self: center left;
 `;
 
+function filterCoins(e,setFilteredCoins, coinList) {
+    let inputValue = e.target.value;
+    console.log(inputValue);
+}
+
 export default function () {
     return (
-        <SearchGrid>
-           <h2>Search all coins</h2>
-            <SearchInput/>
-        </SearchGrid>
+        <AppContext.Consumer>
+            {({setFilteredCoins,coinList }) =>
+            <SearchGrid>
+                <h2>Search all coins</h2>
+                <SearchInput onKeyUp={(e) => filterCoins(e,setFilteredCoins, coinList)}/>
+            </SearchGrid>
+            }
+        </AppContext.Consumer>
     )
 }
