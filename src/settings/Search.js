@@ -34,7 +34,12 @@ const handleInput = _.debounce((inputValue, coinList, setFilteredCoins) => {
         .filter(inputValue, allStringsToSearch, {})
         .map(result => result.string);
 
-    console.log(fuzzyResults);
+    let filteredCoins = _.pickBy(coinList, (result, symKey) => {
+        let coinName = result.CoinName;
+        return (_.includes(fuzzyResults, symKey) || _.includes(fuzzyResults, coinName));
+    });
+
+    console.log(filteredCoins);
 
 }, 500);
 
