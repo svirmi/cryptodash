@@ -15,7 +15,7 @@ const SearchInput = styled.input`
     ${fontSize2}
     border: 1px solid;
     height: 2.5rem;
-    color: #1163c9;
+    color: white;
     place-self: center left;
 `;
 
@@ -38,9 +38,7 @@ const handleInput = _.debounce((inputValue, coinList, setFilteredCoins) => {
         let coinName = result.CoinName;
         return (_.includes(fuzzyResults, symKey) || _.includes(fuzzyResults, coinName));
     });
-
-    console.log(filteredCoins);
-
+    setFilteredCoins(filteredCoins);
 }, 500);
 
 function filterCoins(e,setFilteredCoins, coinList) {
