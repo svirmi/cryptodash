@@ -20,7 +20,15 @@ const SearchInput = styled.input`
 
 // handleFilter
 const handleInput = _.debounce((inputValue, coinList, setFilteredCoins) => {
-    console.log(inputValue);
+    // get all the coin symbols
+    let coinSymbols = Object.keys(coinList);
+
+    // get all the coin names and map symbol to name
+    let coinNames = coinSymbols.map(sym => coinList[sym].CoinName);
+
+    // combining symbols and their names to search
+    let allStringsToSearch = coinSymbols.concat(coinNames);
+    console.log(allStringsToSearch);
 }, 500);
 
 function filterCoins(e,setFilteredCoins, coinList) {
