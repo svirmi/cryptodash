@@ -30,7 +30,11 @@ const handleInput = _.debounce((inputValue, coinList, setFilteredCoins) => {
     // combining symbols and their names to search
     let allStringsToSearch = coinSymbols.concat(coinNames);
 
-    let fuzzyResults = fuzzy.filter(inputValue, allStringsToSearch, {});
+    let fuzzyResults = fuzzy
+        .filter(inputValue, allStringsToSearch, {})
+        .map(result => result.string);
+
+    console.log(fuzzyResults);
 
 }, 500);
 
