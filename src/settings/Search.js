@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import {backgroundColor2, fontSize2} from "../shared/Styles";
 import {AppContext} from "../context/AppProvider";
+import _ from 'lodash';
 
 const SearchGrid = styled.div`
     display: grid;
@@ -17,9 +18,14 @@ const SearchInput = styled.input`
     place-self: center left;
 `;
 
+// handleFilter
+const handleInput = _.debounce((inputValue, coinList, setFilteredCoins) => {
+    console.log(inputValue);
+}, 500);
+
 function filterCoins(e,setFilteredCoins, coinList) {
     let inputValue = e.target.value;
-    console.log(inputValue);
+    handleInput(inputValue, coinList, setFilteredCoins);
 }
 
 export default function () {
