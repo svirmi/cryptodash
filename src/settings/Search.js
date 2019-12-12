@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {backgroundColor2, fontSize2} from "../shared/Styles";
 import {AppContext} from "../context/AppProvider";
 import _ from 'lodash';
+import fuzzy from 'fuzzy';
 
 const SearchGrid = styled.div`
     display: grid;
@@ -28,7 +29,9 @@ const handleInput = _.debounce((inputValue, coinList, setFilteredCoins) => {
 
     // combining symbols and their names to search
     let allStringsToSearch = coinSymbols.concat(coinNames);
-    console.log(allStringsToSearch);
+
+    let fuzzyResults = fuzzy.filter(inputValue, allStringsToSearch, {});
+
 }, 500);
 
 function filterCoins(e,setFilteredCoins, coinList) {
