@@ -4,7 +4,8 @@ import _ from "lodash";
 const cc = require("cryptocompare");
 
 const MAX_FAVORITES = 10;
-const DEFAULT_FAVORITES = ['BTC', 'ETH', 'XMR', 'DOGE'];
+const DEFAULT_FAVORITES = ['BTC', 'ETH', 'XMR', 'DOGE', 'BUZZ'];
+const CURRENCY = 'USD';
 
 export const AppContext = React.createContext();
 
@@ -26,6 +27,7 @@ export class AppProvider extends React.Component{
 
     componentDidMount() {
         this.fetchCoins();
+        this.fetchPrices();
     }
 
     fetchCoins = async () => {
@@ -33,10 +35,34 @@ export class AppProvider extends React.Component{
         this.setState({coinList});
     }
 
+    fetchPrices = async () => {
+        if(this.state.firstVisit) return;
+        let prices = await this.prices();
+        prices = prices.filter(price => Object.keys(price).length);
+        this.setState({prices});
+    }
+
+    prices = async () => {
+        let returnData = [];
+
+        for(let i = 0; i < this.state.favorites.length; i++) {
+            try {
+                let priceSata = await cc.priceFull(this.state.favorites[i], CURRENCY);
+                returnData.push(priceSata);
+            } catch (e) {
+                console.warn('Fetch price error: ', e);
+            }
+        }
+
+        return returnData;
+    }
+
     confirmFavorites = () => {
         this.setState({
             firstVisit: false,
             page: 'dashboard'
+        }, () => {
+            this.fetchPrices();
         });
 
         localStorage.setItem("cryptodash", JSON.stringify({
