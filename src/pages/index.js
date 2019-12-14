@@ -3,6 +3,7 @@ import "../styles/App.css";
 import {AppProvider} from "../context/AppProvider";
 import AppLayout from "../layout/AppLayout";
 import Settings from "../settings";
+import Dashboard from "../dashboard";
 import AppBar from "../components/AppBar";
 import Content from "../shared/Content";
 
@@ -14,6 +15,7 @@ class App  extends Component{
                     <AppBar/>
                     <Content>
                         <Settings/>
+                        <Dashboard/>
                     </Content>
                 </AppProvider>
             </AppLayout>
