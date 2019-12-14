@@ -5,8 +5,8 @@ const cc = require("cryptocompare");
 
 const MAX_FAVORITES = 10;
 const DEFAULT_FAVORITES = ['BTC', 'ETH', 'XMR', 'DOGE', 'BUZZ'];
-const CURRENCY = 'USD';
 
+export const CURRENCY = 'USD';
 export const AppContext = React.createContext();
 
 export class AppProvider extends React.Component{
