@@ -7,13 +7,22 @@ import {CoinHeaderGridStyled} from "../settings/CoinHeaderGrid";
 
 const PriceTileStyled = styled(SelectableTile)`
     ${props => props.compact && css`
-        ${fontSize3}
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 5px;
+        justify-items: right;
+        ${fontSize3}        
     `}
 `;
 
 const JustifyRight = styled.div`
     justify-self: right;
 `;
+
+const JustifyLeft = styled.div`
+    justify-self: left;
+`;
+
 
 const TickerPrice = styled.div`
     ${fontSizeBig};
@@ -41,6 +50,18 @@ function ChangePercent({data}) {
     );
 }
 
+function PriceTileCompact({sym, data, compact}) {
+    return (
+        <PriceTileStyled compact>
+                <JustifyLeft>{sym}</JustifyLeft>
+                <ChangePercent data={data}/>
+            <div>
+                {CURRENCY === 'USD' ? '$' : ''} {numberFormat(data.PRICE)}
+            </div>
+        </PriceTileStyled>
+    );
+}
+
 function PriceTile({sym, data}) {
     return (
         <PriceTileStyled>
@@ -55,12 +76,13 @@ function PriceTile({sym, data}) {
     );
 }
 
-export default function ({price}) {
+export default function ({price, index}) {
 
     let sym = Object.keys(price)[0];
     let data = price[sym][CURRENCY];
+    let TileClass = index < 5 ? PriceTile : PriceTileCompact;
 
     return (
-        <PriceTile sym={sym} data={data}/>
+        <TileClass sym={sym} data={data}/>
     )
 }
