@@ -24,6 +24,6 @@ export const redBoxShadow = `box-shadow: 0px 0px 2px 2px #e41111;`;
 export const fontSizeBig = 'font-size: 2em';
 export const fontSize1 = 'font-size: 1.5em;';
 export const fontSize2 = 'font-size: 1.0em;';
-export const fontSize3 = 'font-size: .75em';
+export const fontSize3 = 'font-size: .75em;';
 
 export const textAlignCenter = 'text-align: center;';
