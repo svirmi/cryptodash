@@ -58,15 +58,18 @@ export class AppProvider extends React.Component{
     }
 
     confirmFavorites = () => {
+        let currentFavorite = this.state.favorites[0];
         this.setState({
             firstVisit: false,
-            page: 'dashboard'
+            page: 'dashboard',
+            currentFavorite,
         }, () => {
             this.fetchPrices();
         });
 
         localStorage.setItem("cryptodash", JSON.stringify({
-            favorites: this.state.favorites
+            favorites: this.state.favorites,
+            currentFavorite
         }));
     }
 
@@ -95,9 +98,9 @@ export class AppProvider extends React.Component{
             }
         }
 
-        let {favorites} = cryptoDashData;
+        let {favorites, currentFavorite} = cryptoDashData;
 
-        return {favorites};
+        return {favorites, currentFavorite};
     }
 
     setPage = page => this.setState({page});

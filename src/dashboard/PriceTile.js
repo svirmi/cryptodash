@@ -2,16 +2,23 @@ import React from "react";
 import styled, {css} from "styled-components";
 import {SelectableTile} from "../shared/Tile";
 import {CURRENCY} from "../context/AppProvider";
-import {fontSize3, fontSizeBig} from "../shared/Styles";
+import {fontSize3, fontSizeBig, greenBoxShadow} from "../shared/Styles";
 import {CoinHeaderGridStyled} from "../settings/CoinHeaderGrid";
+import {AppContext} from "../context/AppProvider";
 
 const PriceTileStyled = styled(SelectableTile)`
+    
     ${props => props.compact && css`
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 5px;
         justify-items: right;
         ${fontSize3}        
+    `}
+    
+    ${props => props.currentFavorite && css`
+        ${greenBoxShadow}
+        pointer-events:none;
     `}
 `;
 
@@ -50,9 +57,9 @@ function ChangePercent({data}) {
     );
 }
 
-function PriceTileCompact({sym, data, compact}) {
+function PriceTileCompact({sym, data, compact, currentFavorite}) {
     return (
-        <PriceTileStyled compact>
+        <PriceTileStyled compact currentFavorite={currentFavorite}>
                 <JustifyLeft>{sym}</JustifyLeft>
                 <ChangePercent data={data}/>
             <div>
@@ -62,9 +69,9 @@ function PriceTileCompact({sym, data, compact}) {
     );
 }
 
-function PriceTile({sym, data}) {
+function PriceTile({sym, data, currentFavorite}) {
     return (
-        <PriceTileStyled>
+        <PriceTileStyled currentFavorite={currentFavorite}>
             <CoinHeaderGridStyled>
                 <div>{sym}</div>
                 <ChangePercent data={data}/>
@@ -83,6 +90,15 @@ export default function ({price, index}) {
     let TileClass = index < 5 ? PriceTile : PriceTileCompact;
 
     return (
-        <TileClass sym={sym} data={data}/>
+        <AppContext.Consumer>
+            {
+                ({currentFavorite}) =>
+                    <TileClass
+                        sym={sym}
+                        data={data}
+                        currentFavorite={currentFavorite === sym}
+                    />
+            }
+        </AppContext.Consumer>
     )
 }
