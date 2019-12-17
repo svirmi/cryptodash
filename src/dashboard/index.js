@@ -1,5 +1,5 @@
 import React from "react";
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import Page from "../shared/Page";
 import PriceGrid from "./PriceGrid";
 import CoinSpotlight from "./CoinSpotlight";

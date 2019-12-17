@@ -4,5 +4,13 @@ import {AppContext} from "../context/AppProvider";
 import CoinImage from "../shared/CoinImage";
 
 export default function () {
-    return <Tile>Spotlight area</Tile>
+    return (
+        <AppContext.Consumer>
+            {({currentFavorite, coinList}) =>
+                <Tile>
+                    <h2>{coinList[currentFavorite].CoinName}</h2>
+                </Tile>
+            }
+        </AppContext.Consumer>
+    )
 }
