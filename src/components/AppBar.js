@@ -13,7 +13,7 @@ const Bar = styled.div`
 
 const ControlButtonElem = styled.div`
     cursor: pointer;
-    ${props => props.hide && css`
+    ${props => props.hidden && css`
         display:none;
     `}
     ${props => props.active && css`
@@ -28,7 +28,7 @@ function ControlButton({name}) {
                 <ControlButtonElem
                     active={page === name}
                     onClick={() => setPage(name)}
-                    hide={firstVisit && name === 'dashboard'}
+                    hidden={firstVisit && name === 'dashboard'}
                 >
                     {toProperCase(name)}
                 </ControlButtonElem>
