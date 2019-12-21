@@ -132,7 +132,7 @@ export class AppProvider extends React.Component{
     savedSettings(){
         if(typeof window !== 'undefined' && window.localStorage) {  // gatsby build SSR hack
             let cryptoDashData = JSON.parse(localStorage.getItem("cryptodash"));
-            if(!cryptoDashData){
+            if(!cryptoDashData || !localStorage.getItem("cryptodash")){
                 return {
                     page: "settings",
                     firstVisit: true
