@@ -13,7 +13,7 @@ const Bar = styled.div`
 
 const ControlButtonElem = styled.div`
     cursor: pointer;
-    ${props => props.hidden && css`
+    ${props => props.hide && css`
         display:none;
     `}
     ${props => props.active && css`
@@ -28,7 +28,7 @@ function ControlButton({name}) {
                 <ControlButtonElem
                     active={page === name}
                     onClick={() => setPage(name)}
-                    hidden={firstVisit && name === 'dashboard'}
+                    hide={firstVisit && name === 'dashboard'}
                 >
                     {toProperCase(name)}
                 </ControlButtonElem>
@@ -46,8 +46,8 @@ export default function () {
         <Bar>
             <Logo>CryptoDash</Logo>
             <div></div>
-            <ControlButton name="dashboard"/>
-            <ControlButton name="settings"/>
+            <ControlButton name = "dashboard"/>
+            <ControlButton active name = "settings"/>
         </Bar>
     );
 }
