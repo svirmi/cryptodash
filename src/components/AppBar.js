@@ -24,11 +24,11 @@ const ControlButtonElem = styled.div`
 function ControlButton({name}) {
     return (
         <AppContext.Consumer>
-            {({firstVisit,page, setPage}) => (
+            {({firstVisit, page, setPage}) => (
                 <ControlButtonElem
                     active={page === name}
                     onClick={() => setPage(name)}
-                    hidden={firstVisit && name==='dashboard'}
+                    hidden={firstVisit && name === 'dashboard'}
                 >
                     {toProperCase(name)}
                 </ControlButtonElem>
