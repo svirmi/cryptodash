@@ -22,6 +22,7 @@ export default {
         plotBorderWidth: 1
     },
     title: {
+        text: 'Coin price',
         style: {
             color: 'white',
             font: 'bold 16px "Trebuchet MS", Verdana, sans-serif'
@@ -34,6 +35,7 @@ export default {
         }
     },
     xAxis: {
+        type: 'datetime',
         gridLineColor: '#333333',
         gridLineWidth: 1,
         labels: {
@@ -64,6 +66,7 @@ export default {
         tickColor: '#A0A0A0',
         tickWidth: 1,
         title: {
+            text: 'Price',
             style: {
                 color: '#CCC',
                 fontWeight: 'bold',

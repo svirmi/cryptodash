@@ -4,6 +4,8 @@ import moment from "moment";
 
 const cc = require("cryptocompare");
 
+cc.setApiKey('8c9d80b8c31768f68a4ced72eb2e01e3bf0045c1b997e08649d2ff0e515bdde0');
+
 const MAX_FAVORITES = 10;
 const TIME_UNITS = 10;
 const DEFAULT_FAVORITES = ['BTC', 'ETH', 'XMR', 'DOGE', 'BUZZ'];
@@ -54,7 +56,7 @@ export class AppProvider extends React.Component{
                 name: this.state.currentFavorite,
                 data: results.map((ticker, index) => [
                     moment().subtract({months: TIME_UNITS - index}).valueOf(),
-                    ticker.CURRENCY
+                    ticker.USD
                 ])
             }
         ];
