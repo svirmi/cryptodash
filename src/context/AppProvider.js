@@ -2,11 +2,11 @@ import React from "react";
 import _ from "lodash";
 import moment from "moment";
 
-const apiKey = process.env.API_KEY;
+// const apiKey = process.env.API_KEY;
 
 const cc = require("cryptocompare");
 
-cc.setApiKey(apiKey);
+// cc.setApiKey(apiKey);
 
 const MAX_FAVORITES = 10;
 const TIME_UNITS = 10;

@@ -13,11 +13,11 @@ const Bar = styled.div`
 
 const ControlButtonElem = styled.div`
     cursor: pointer;
-    ${props => props.active && css`
-        text-shadow: 0px 0px 15px #03ff03;
-    `}
     ${props => props.hidden && css`
         display:none;
+    `}
+    ${props => props.active && css`
+        text-shadow: 0px 0px 15px #03ff03;
     `}
 `;
 
@@ -46,7 +46,7 @@ export default function () {
         <Bar>
             <Logo>CryptoDash</Logo>
             <div></div>
-            <ControlButton active name="dashboard"/>
+            <ControlButton name="dashboard"/>
             <ControlButton name="settings"/>
         </Bar>
     );
