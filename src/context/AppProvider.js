@@ -19,7 +19,8 @@ export class AppProvider extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            page: 'dashboard',
+            page: 'settings',
+            firstVisit: true,
             favorites: DEFAULT_FAVORITES,
             ...this.savedSettings(),
             setPage: this.setPage,
@@ -98,7 +99,7 @@ export class AppProvider extends React.Component{
         let currentFavorite = this.state.favorites[0];
         this.setState({
             firstVisit: false,
-            page: 'settings',
+            page: 'dashboard',
             currentFavorite,
             prices: null,
             historical:null
