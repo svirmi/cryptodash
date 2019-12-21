@@ -1,4 +1,7 @@
 export default function (historical) {
+
+    console.log(historical);
+
     return {
         chart: {
             type: 'spline'

@@ -125,18 +125,19 @@ export class AppProvider extends React.Component{
     isInFavorites = key => _.includes(this.state.favorites, key);
 
     savedSettings(){
-        let cryptoDashData = JSON.parse(localStorage.getItem("cryptodash"));
-
-        if(!cryptoDashData){
-            return {
-                page: "settings",
-                firstVisit: true
+        if(typeof window !== 'undefined' && window.localStorage) {  // gatsby build SSR hack
+            let cryptoDashData = JSON.parse(localStorage.getItem("cryptodash"));
+            if(!cryptoDashData){
+                return {
+                    page: "settings",
+                    firstVisit: true
+                }
             }
+
+            let {favorites, currentFavorite} = cryptoDashData;
+
+            return {favorites, currentFavorite};
         }
-
-        let {favorites, currentFavorite} = cryptoDashData;
-
-        return {favorites, currentFavorite};
     }
 
     setCurrentFavorite = (sym) => {
