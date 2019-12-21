@@ -7,6 +7,6 @@ cd app
 yarn gatsby develop -H 0.0.0.0
 ```
 
-http://localhost:8000/
+Demo: https://flamboyant-galileo-bc537c.netlify.com/
 
 ![cryptodash screenshot](screenshot.png?raw=true "cryptodash screenshot")
