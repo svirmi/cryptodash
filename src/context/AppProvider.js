@@ -20,7 +20,6 @@ export class AppProvider extends React.Component{
         super(props);
         this.state = {
             page: 'settings',
-            firstVisit: true,
             favorites: DEFAULT_FAVORITES,
             ...this.savedSettings(),
             setPage: this.setPage,
@@ -132,7 +131,7 @@ export class AppProvider extends React.Component{
     savedSettings(){
         if(typeof window !== 'undefined' && window.localStorage) {  // gatsby build SSR hack
             let cryptoDashData = JSON.parse(localStorage.getItem("cryptodash"));
-            if(!cryptoDashData || !localStorage.getItem("cryptodash")){
+            if(!cryptoDashData){
                 return {
                     page: "settings",
                     firstVisit: true
