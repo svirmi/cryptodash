@@ -4,7 +4,11 @@ import moment from "moment";
 
 const cc = require("cryptocompare");
 
-cc.setApiKey('8c9d80b8c31768f68a4ced72eb2e01e3bf0045c1b997e08649d2ff0e515bdde0');
+const config = {
+    apiKey: process.env.apiKey,
+}
+
+cc.setApiKey(config.apiKey);
 
 const MAX_FAVORITES = 10;
 const TIME_UNITS = 10;
