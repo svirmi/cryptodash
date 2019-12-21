@@ -1,6 +1,11 @@
+// https://github.com/highcharts/highcharts/blob/master/js/themes/dark-blue.js
+
 export default {
-    colors: ['#DDDF0D', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee',
-        '#ff0066', '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
+    colors: [
+        '#61d936',
+        '#552ccb',
+        '#1163c9'
+    ],
     chart: {
         backgroundColor: {
             linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
@@ -18,7 +23,7 @@ export default {
     },
     title: {
         style: {
-            color: '#C0C0C0',
+            color: 'white',
             font: 'bold 16px "Trebuchet MS", Verdana, sans-serif'
         }
     },

@@ -3,10 +3,16 @@ const options = {
         type: 'spline'
     },
     title: {
-        text: 'My chart'
+        text: 'Coin price'
+    },
+    yAxis: {
+        title: {
+            text: 'Price'
+        }
     },
     series: [
         {
+            name: 'Price',
             data: [1, 2, 1, 4, 3, 6]
         }
     ]
