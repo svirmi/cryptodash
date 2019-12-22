@@ -4,6 +4,8 @@ import moment from "moment";
 
 const apiKey = process.env.API_KEY;
 
+console.log(apiKey);
+
 const cc = require("cryptocompare");
 
 cc.setApiKey(apiKey);
