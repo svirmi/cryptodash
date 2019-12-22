@@ -129,7 +129,7 @@ export class AppProvider extends React.Component{
     isInFavorites = key => _.includes(this.state.favorites, key);
 
     savedSettings(){
-        if(typeof window !== 'undefined' && window.localStorage) {  // gatsby build SSR hack
+        if(typeof window !== 'undefined') {  // gatsby build SSR hack
             let cryptoDashData = JSON.parse(localStorage.getItem("cryptodash"));
             if(!cryptoDashData){
                 return {
