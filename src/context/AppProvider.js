@@ -2,7 +2,7 @@ import React from "react";
 import _ from "lodash";
 import moment from "moment";
 
-const apiKey = process.env.API_KEY;
+const apiKey = process.env.GATSBY_API_KEY;
 
 console.log(apiKey);
 
