@@ -19,7 +19,8 @@ export class AppProvider extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            page: 'settings',
+            // page: 'settings',
+            // firstVisit: true,
             favorites: DEFAULT_FAVORITES,
             ...this.savedSettings(),
             setPage: this.setPage,
@@ -141,6 +142,11 @@ export class AppProvider extends React.Component{
             let {favorites, currentFavorite} = cryptoDashData;
 
             return {favorites, currentFavorite};
+        } else {
+            return {
+                page: "settings",
+                firstVisit: true
+            }
         }
     }
 
