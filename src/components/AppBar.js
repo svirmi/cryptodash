@@ -28,7 +28,7 @@ function ControlButton({name}) {
                 <ControlButtonElem
                     active={page === name}
                     onClick={() => setPage(name)}
-                    hidden={firstVisit && name === "dashboard"}
+                    hidden={(name === "dashboard" && firstVisit)}
                 >
                     {toProperCase(name)}
                 </ControlButtonElem>
