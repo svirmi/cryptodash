@@ -19,8 +19,8 @@ export class AppProvider extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            page: 'settings',
-            firstVisit: true,
+            // page: 'settings',
+            // firstVisit: true,
             favorites: DEFAULT_FAVORITES,
             ...this.savedSettings(),
             setPage: this.setPage,
