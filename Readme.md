@@ -7,8 +7,8 @@ cd app
 yarn gatsby develop -H 0.0.0.0
 ```
 
-Live demo: https://flamboyant-galileo-bc537c.netlify.com/
+Live demo: https://cryptodashh.netlify.com/
 
 ![cryptodash screenshot](screenshot.png?raw=true "cryptodash screenshot")
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ba241cc5-91cf-4ac8-ac67-df0cb3154e13/deploy-status)](https://app.netlify.com/sites/flamboyant-galileo-bc537c/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/613142d6-3b53-4f91-b106-134266dfd87f/deploy-status)](https://app.netlify.com/sites/cryptodashh/deploys)

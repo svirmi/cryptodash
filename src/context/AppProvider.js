@@ -4,8 +4,6 @@ import moment from "moment";
 
 const apiKey = process.env.GATSBY_API_KEY;
 
-console.log(apiKey);
-
 const cc = require("cryptocompare");
 
 cc.setApiKey(apiKey);
@@ -21,7 +19,7 @@ export class AppProvider extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            // page: 'settings',
+            page: 'settings',
             // firstVisit: true,
             favorites: DEFAULT_FAVORITES,
             ...this.savedSettings(),
